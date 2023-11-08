@@ -1,0 +1,28 @@
+Que son las listas enlazadas?
+ventajas de las listas enlazadas 
+Cual es la diferencia entre listas enlazadas y pilas y colas
+Como se elimina un nodo de una lista enlazada
+Explica la diferencia entre una lista enlazada simple y una lista enlazada doble
+Que es la inserción en cabeza (heard insertion) en una lista enlazada
+Que es una lista enlazada circular
+Que es una lista doble enlazada circular
+Cuando se prefiere utilizar una lista enlazada a un árbol (tree) en estructuras de datos
+las desventajas listas enlazadas 
+Que es la lista enlazada de Java "LinkedList" y cuáles son sus características principales
+Como se agrega un elemento al final de una Lista Enlazada
+Como se recorre una Lista Enlazada
+Como se invierte una Lista Enlazada
+Cuales son los tipos más comunes de Listas Enlazadas
+Que son las Listas Enlazadas con cabecera y para qué se utilizan
+Como se realiza la unión o concatenación de dos Listas Enlazadas
+Explica cómo se detecta si una Lista Enlazada tiene un ciclo (loop) en su estructura
+Cuándo se debe usar una Lista Enlazada en lugar de un ArrayList
+Como se encuentra el elemento en la posición n-ésima de una Lista Enlazada
+Como se realiza la inserción de un nuevo elemento en una posición específica de una Lista Enlazada
+Que es la ordenación de una lista enlazada 
+Cuales son algunas aplicaciones comunes de las listas enlazadas en la programación
+Que es una lista enlazada auto referenciada 
+Que es una lista enlazada con bucle 
+Que es una lista enlazada con multiples punteros multilista
+Que es una lista enlazada con salto skip list
+Que es la sobrecarga de operadores 

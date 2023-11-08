@@ -1,10 +1,23 @@
 package tomadatos;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTextField;
 import org.apache.commons.text.similarity.LevenshteinDistance;
-public class Tomadatos {
-    public static void main(String[] args)throws Exception {
+public class Hilodatos extends Thread{
+    private JTextField textos;
+    private String busquedapro;
+    public Hilodatos(JTextField textos) {
+        this.textos=textos;
+    }
+    public String getBusquedapro() {
+        return busquedapro;
+    }
+    @Override
+        public void run(){
         LinkedList<String> lista= new LinkedList<>();
         LinkedList<String> lista2= new LinkedList<>();
         LinkedList<String> lista3= new LinkedList<>();
@@ -14,19 +27,26 @@ public class Tomadatos {
         String check, minusculas, parametro=String.valueOf((paraint+1));
         String [][] respg;
         File doc =new File("Pregutas.txt");
-        Scanner obj = new Scanner(doc);
+        Scanner obj;
         Scanner bus = new Scanner(System.in);
-        while (obj.hasNextLine()){
-            minusculas=obj.nextLine();
-            minusculas=minusculas.toLowerCase();//String texto.tolowercase() lo convierte en minusculas.
-            lista.add(x,minusculas);
-            x++;
+        try {
+            obj = new Scanner(doc);
+            while (obj.hasNextLine()){
+                minusculas=obj.nextLine();
+                minusculas=minusculas.toLowerCase();//String texto.tolowercase() lo convierte en minusculas.
+                lista.add(x,minusculas);
+                x++;
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Hilodatos.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         x=0;
         //Respuestas normales
         doc =new File("Respuestasn");
-        obj=new Scanner(doc);
-        while (obj.hasNextLine()){
+        try {
+            obj=new Scanner(doc);
+            while (obj.hasNextLine()){
             minusculas=obj.nextLine();
             if (minusculas.contains(parametro)){contador++;}
             else {
@@ -35,15 +55,20 @@ public class Tomadatos {
             }
             lista2.add(x,minusculas);
             x++;
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Hilodatos.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         guarda[paraint]=contador;
         x=0;contador=0;paraint=0;
         parametro=String.valueOf((paraint+1));
         
         //respuestas java
         doc =new File("RespuestasJava.txt");
-        obj=new Scanner(doc);
-        while (obj.hasNextLine()){
+        try {
+            obj=new Scanner(doc);
+            while (obj.hasNextLine()){
             minusculas=obj.nextLine();
             if (minusculas.contains(parametro)){contador++;}
             else {
@@ -55,24 +80,27 @@ public class Tomadatos {
         }
         guarda2[paraint]=contador; //REPETIR TODO LO DE ARRIBA CON LAS DEMAS RESPUESTAScontador=0;paraint=0;
         //el numero de guarda significa las lineas que hay por cada respuesta
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Hilodatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
         
         //A partir de aca es la IA
         quet=0;
         tipo=new int[lista.size()];
-        System.out.println("Hola!, en que te puedo ayudar hoy! ");
-        while (j==0){
+        //System.out.println("Hola!, en que te puedo ayudar hoy! ");
             String busqueda;
-            busqueda=bus.nextLine();
+            busqueda=textos.getText();
             busqueda=busqueda.toLowerCase();
-            if (busqueda.equals("salir")){j=1;System.out.println("Gracias por usar esta IA");break;} //con esto se cierra la ia
+            if (busqueda.equals("salir")){System.out.println("Gracias por usar esta IA");} //con esto se cierra la ia
             if (busqueda.contains("java")) {
                 quet=1;
                 busqueda=busqueda.replaceAll("java", "").replaceAll("\\s+", " ");} 
             else if (busqueda.contains("python")) {
                 quet=2;
                 busqueda=busqueda.replaceAll("python", "").replaceAll("\\s+", " ");}
-            System.out.println(busqueda);
+            //System.out.println(busqueda);
             for(int y=0;y<lista.size();y++){
                 check=lista.get(y);
                 tipo[y]=LevenshteinDistance.getDefaultInstance().apply(busqueda, check);
@@ -85,7 +113,7 @@ public class Tomadatos {
             }
             if (ref==1 && busqueda.contains("desventajas"))ref=9;
             if (ref>=9) indi=1; else indi=0;
-            System.out.println("la mas acertada:"+preg+" y seria la pregunta "+(ref+1)+" en la posición "+ref);//borrar
+            //System.out.println("la mas acertada:"+preg+" y seria la pregunta "+(ref+1)+" en la posición "+ref);//borrar
             int z, z2;
             z=0;z2=0;subidon=0;
             respg=new String [5][400];
@@ -127,8 +155,11 @@ public class Tomadatos {
             for (int v=0;v<respg.length;v++) if (respg[v][0]==null)referir--;
             subidon=(int)(Math.random() * referir);
             for (int v=0;v<respg[0].length;v++){
-                if (respg[subidon][v]!=null)System.out.println(respg[subidon][v]);
+                if (respg[subidon][v]!=null){/*System.out.println(respg[subidon][v]);*/
+                busquedapro+=respg[subidon][v]+"\n";}
+                else if (busqueda.equals("salir")) {busquedapro="Gracias por usar esta IA!";break;}
+                }
             }
-        }
+        
     }
-}
+

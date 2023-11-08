@@ -1,0 +1,126 @@
+A.1)Una lista enlazada es una estructura de datos lineal. No almacena los datos en ubicaciones de memoria contiguas como matrices. Y cada elemento vinculado se llama nodo y se conectan usando punteros. El primer nodo en la lista enlazada se llama cabeza.
+
+A.1.1)Una lista enlazada es una estructura de datos dinámica. La cantidad de nodos en una lista no es fija y puede crecer y contraerse a demanda. Cualquier aplicación que tenga que tratar con un número desconocido de objetos necesitará usar una lista enlazada.
+
+A.1.1.1)La lista se compone de nodos o elementos que van enlazados entre sí. Cada nodo tiene dos cosas: el dato que guarda y un apuntador al nodo siguiente, del mismo tipo.
+
+A.1.1.1.1)Una lista enlazada Doubly es una estructura de datos basada en nodos. Un nodo no es nada más que un contenedor (un objeto) que almacena parte de la información que contiene la lista. La razón del nombre “lista enlazada” es porque los nodos están enlazados unos con otros. De manera más específica, cada nodo está enlazado con mínimo 1 y máximo 2 nodos más. La manera en la que estos nodos están enlazados es mediante la propiedades “next” y “previous” (pueden encontrar implementaciones con nombres diferentes(un ejemplo de ellos es “next” y “previous”)). La propiedad “next” hace referencia al nodo siguiente en la lista y “previous” al nodo anterior. Cada nodo tiene una propiedad “value” que contiene el valor que se pretende almacenar (también encontramos otros ejemplos es “data”)).
+
+B.2)El beneficio principal de una lista vinculada en una matriz convencional es que los elementos de la lista pueden insertarse o eliminarse fácilmente sin reasignar o reorganizar toda la estructura porque los elementos de datos no necesitan almacenarse contiguamente en la memoria o en el disco, mientras reestructuran una matriz en el tiempo de ejecución es una operación mucho más costosa. 
+
+B.2.2)Las listas vinculadas permiten la inserción y eliminación de nodos en cualquier punto de la lista, y permiten hacerlo con un número constante de operaciones al mantener el enlace anterior al enlace que se agrega o elimina en la memoria durante el recorrido de la lista.
+
+B.2.2.2)Las listas enlazadas son muy versátiles. Con ellas puedes representar diversos tipos de estructura de datos, como Listas, Diccionarios, Árboles, Grafos. En el caso de las listas doblemente enlazadas insertar al inicio o al final es O(1) por lo que es factible implementar pilas y colas con ellas.
+
+B.2.2.2.2)Las listas enlazadas en Python tienen varias ventajas, entre las cuales se incluyen las siguientes:
+
+1. *Inserción y eliminación eficientes*: Las listas enlazadas son especialmente eficientes para realizar inserciones y eliminaciones en cualquier posición. A diferencia de las listas de Python (`list`), que requieren un desplazamiento de elementos para insertar o eliminar en posiciones intermedias, en una lista enlazada solo se necesita ajustar los enlaces entre nodos, lo cual es un proceso más rápido.
+
+2. *Flexibilidad en el tamaño*: Las listas enlazadas pueden crecer o reducirse dinámicamente según sea necesario. No tienen un tamaño fijo como las matrices (arrays), lo que significa que puedes agregar o eliminar elementos de manera eficiente sin preocuparte por la reasignación de memoria.
+
+3. *Menor fragmentación de memoria*: En las listas enlazadas, los nodos pueden estar dispersos en diferentes áreas de la memoria, lo que reduce la fragmentación de memoria. A diferencia de las matrices (arrays), donde los elementos deben estar contiguos en la memoria, las listas enlazadas pueden aprovechar mejor el espacio disponible.
+
+4. *Flexibilidad en la estructura*: Las listas enlazadas permiten estructuras de datos más complejas y flexibles. Puedes implementar diferentes tipos de listas enlazadas, como listas enlazadas simples, listas enlazadas dobles, listas circulares, etc. Esto te permite adaptar la estructura de la lista según las necesidades de tu aplicación.
+
+5. *Eficiencia en la inserción y eliminación al principio*: En una lista enlazada, la inserción y eliminación de elementos al principio de la lista se pueden realizar en tiempo constante (O(1)). Esto es especialmente útil cuando necesitas realizar operaciones frecuentes en el inicio de la lista, como en una pila o una cola implementadas con listas enlazadas.
+
+Es importante tener en cuenta que, si bien las listas enlazadas tienen estas ventajas, también tienen algunas desventajas en comparación con otras estructuras de datos. Por ejemplo, el acceso aleatorio a elementos (es decir, acceder a un elemento en una posición específica) en una lista enlazada requiere recorrer la lista desde el principio, lo que puede ser menos eficiente que en una matriz (array). Además, las listas enlazadas requieren más memoria debido a los enlaces adicionales entre nodos.
+
+C.3)En PYTHON, puedes implementar listas enlazadas, pilas y colas de manera personalizada o utilizando las estructuras y clases proporcionadas en la biblioteca estándar. La elección entre ellas depende de los requisitos específicos de tu aplicación y de si necesitas seguir el principio LIFO (pilas) y/o FIFO (colas) para el orden de acceso a los elementos.
+
+C.3.3)La única diferencia significativa entre la Pila y la Cola es que en lugar de usar el método LIFO, la Cola implementa el método FIFO (First In First Out; en español PEPS, o Primero en Entrar Primero en Salir).
+
+C.3.3.3)Las listas enlazadas, las pilas y las colas son estructuras de datos lineales, pero tienen diferencias en su implementación y en cómo se realizan las operaciones sobre ellas. A continuación, se presentan las diferencias clave entre las listas enlazadas, las pilas y las colas en Python:
+
+1. *Listas enlazadas*: Una lista enlazada es una estructura de datos en la que los elementos están organizados en nodos enlazados entre sí. Cada nodo contiene un valor y una referencia al siguiente nodo. Las listas enlazadas permiten inserciones y eliminaciones eficientes en cualquier posición, pero el acceso aleatorio a elementos (por índice) es menos eficiente. En Python, las listas enlazadas se pueden implementar de manera personalizada utilizando clases y referencias de objetos.
+
+2. *Pilas (stacks)*: Una pila es una estructura de datos en la que los elementos se agregan y eliminan solo en un extremo llamado "tope" (top). Sigue el principio de "último en entrar, primero en salir" (LIFO). Las operaciones principales en una pila son `push` (agregar un elemento) y `pop` (eliminar el elemento superior). En Python, puedes implementar pilas utilizando la estructura de datos `list` y sus métodos `append` para `push` y `pop` para eliminar el último elemento agregado.
+
+3. *Colas (queues)*: Una cola es una estructura de datos en la que los elementos se agregan al final y se eliminan del principio. Sigue el principio de "primero en entrar, primero en salir" (FIFO). Las operaciones principales en una cola son `enqueue` (agregar un elemento) y `dequeue` (eliminar el elemento del frente). En Python, puedes implementar colas utilizando la estructura de datos `deque` del módulo `collections` o utilizando la biblioteca `queue` que proporciona implementaciones de colas más especializadas.
+
+En resumen, las listas enlazadas son estructuras más generales que permiten inserciones y eliminaciones eficientes en cualquier posición. Las pilas y las colas son estructuras más específicas que siguen diferentes principios de ordenamiento y permiten operaciones más limitadas. Las pilas se utilizan comúnmente para modelar procesos de pila (como la pila de llamadas de una función), mientras que las colas se utilizan para modelar procesos de cola (como la cola de mensajes en un sistema de mensajería).
+
+D.4)Para eliminar un elemento de una lista, puedes utilizar el método remove(). Este método toma el valor del elemento que quieres eliminar como argumento.
+
+D.4.4)Para eliminar un nodo de una lista enlazada en Python, hay que seguir los siguientes pasos:
+
+Verificar si la lista está vacía. Si está vacía, no hay nada que eliminar.
+Si el nodo a eliminar es el primer nodo de la lista, se debe actualizar el puntero de inicio de la lista para que apunte al siguiente nodo. Esto se hace asignando el valor del puntero siguiente del nodo actual al puntero de inicio.
+Si el nodo a eliminar no es el primer nodo de la lista, se debe recorrer la lista hasta encontrar el nodo anterior al nodo que se desea eliminar.
+Una vez encontrado el nodo anterior al nodo a eliminar, se actualiza el puntero siguiente de este nodo para que apunte al siguiente nodo del nodo a eliminar.
+Finalmente, se libera la memoria del nodo a eliminar.
+
+D.4.4.4)Para eliminar un nodo de una lista enlazada en Python, debes seguir los siguientes pasos:
+
+1. Encuentra el nodo que deseas eliminar y su nodo anterior en la lista enlazada.
+2. Ajusta los enlaces para omitir el nodo que se va a eliminar.
+3. Libera la memoria asignada al nodo eliminado (esto depende del mecanismo de gestión de memoria de Python y no es necesario en todos los casos).
+
+D.4.4.4.4)En el método `eliminar`, recorremos la lista enlazada hasta encontrar el nodo con el valor deseado. Luego, ajustamos los enlaces para omitir ese nodo. Si el nodo a eliminar es la cabeza de la lista, actualizamos la cabeza. Si el nodo a eliminar está
+
+E.5)En Python, una lista enlazada simple y una lista enlazada doble son estructuras de datos que se utilizan para almacenar y organizar elementos de datos de manera secuencial. La principal diferencia entre ambas radica en cómo se conectan los nodos que componen la lista y la cantidad de enlaces que tienen.
+
+Lista enlazada simple (Singly Linked List):
+
+Estructura: En una lista enlazada simple, cada nodo contiene dos campos: un campo de valor para almacenar el elemento de datos y un campo de referencia (enlace) que apunta al siguiente nodo en la secuencia.
+
+Unidireccional: Los nodos en una lista enlazada simple están conectados unidireccionalmente, es decir, cada nodo solo apunta al siguiente nodo en la lista.
+
+Características:
+
+Inicio: La lista enlazada simple tiene un nodo inicial (head) que marca el comienzo de la lista.
+Fin: El último nodo de la lista tiene su enlace apuntando a None, indicando el final de la lista.
+Recorrido: Para recorrer la lista enlazada simple, necesitas seguir los enlaces desde el nodo inicial (head) hasta el nodo final.
+Ventajas:
+
+Utiliza menos memoria que una lista enlazada doble, ya que solo almacena un enlace por nodo.
+Las operaciones de inserción y eliminación en el medio de la lista son más eficientes que en una lista enlazada doble.
+Desventajas:
+
+No permite recorrer la lista en dirección inversa (de atrás hacia adelante) de manera eficiente, ya que no hay enlaces hacia atrás.
+Lista enlazada doble (Doubly Linked List):
+
+Estructura: En una lista enlazada doble, cada nodo contiene tres campos: un campo de valor para almacenar el elemento de datos, un campo de referencia que apunta al nodo anterior y un campo de referencia que apunta al siguiente nodo.
+
+Bidireccional: Los nodos en una lista enlazada doble están conectados bidireccionalmente, es decir, cada nodo apunta tanto al nodo anterior como al siguiente en la lista.
+
+Características:
+
+Inicio: Al igual que en la lista enlazada simple, la lista enlazada doble tiene un nodo inicial (head) que marca el comienzo de la lista.
+Fin: El último nodo de la lista tiene su enlace siguiente apuntando a None, indicando el final de la lista.
+Recorrido: Puedes recorrer la lista tanto hacia adelante como hacia atrás, lo que permite una navegación más versátil.
+Ventajas:
+
+Permite recorrer la lista en ambas direcciones (hacia adelante y hacia atrás).
+Facilita la implementación de ciertas operaciones, como la eliminación de nodos en el medio de la lista.
+Desventajas:
+
+Requiere más memoria que una lista enlazada simple debido a la necesidad de almacenar enlaces adicionales.
+Las operaciones de inserción y eliminación pueden ser un poco más complejas de implementar debido a la necesidad de actualizar enlaces en ambos sentidos.
+En resumen, la principal diferencia entre una lista enlazada simple y una lista enlazada doble en Python es la dirección de los enlaces entre los nodos. Una lista enlazada simple es unidireccional y solo permite el recorrido hacia adelante, mientras que una lista enlazada doble es bidireccional y permite el recorrido en ambas direcciones. La elección entre una u otra depende de los requisitos específicos de tu aplicación y las operaciones que necesitas realizar con la lista.
+
+E.5.5)Pros
+A diferencia de una lista ligada, la lista doblemente ligada se puede navegar y ser analizada en ambas direcciones. La referencia al siguiente nodo ayuda a que nos podamos mover hacia adelante y la referencia al nodo anterior nos ayuda a movernos en dirección contraria.
+
+Las operaciones básicas como agregar elemento y eliminar son fáciles de implementar y el poder navegar en dos direcciones facilita este hecho.
+
+Contras
+Utilizan mas memoria que los arreglos debido al almacenamiento utilizado por sus apuntadores
+
+Las dificultades surgen en las listas enlazadas cuando se trata de invertir el desplazamiento. Por ejemplo, las listas enlazadas individualmente son incómodas para navegar hacia atrás y mientras que las listas enlazadas doblemente son algo más fáciles de leer, la memoria se desperdicia en la asignación de espacio para un puntero hacia atrás.
+
+E.5.5.5)En Python, una lista enlazada simple y una lista enlazada doble son dos tipos de estructuras de datos utilizadas para almacenar y organizar elementos de manera secuencial. La principal diferencia entre ellas radica en la forma en que los elementos están conectados entre sí.
+
+Una lista enlazada simple, también conocida como lista enlazada de un solo enlace, consta de nodos que contienen un valor y un puntero que apunta al siguiente nodo en la lista. El último nodo de la lista tiene un puntero nulo que indica el final de la lista. Esto significa que la navegación en una lista enlazada simple solo puede realizarse en una dirección, es decir, de principio a fin. Si deseas acceder a un elemento en una posición específica, debes recorrer la lista desde el principio hasta esa posición.
+
+Por otro lado, una lista enlazada doble, también conocida como lista enlazada de doble enlace, consta de nodos que contienen un valor y dos punteros: uno que apunta al nodo anterior y otro que apunta al nodo siguiente en la lista. Esto permite la navegación en ambas direcciones, desde el principio hasta el final y viceversa. Dado un nodo en particular, puedes acceder tanto al nodo anterior como al siguiente directamente, lo que facilita la inserción y eliminación de elementos en cualquier posición de la lista.
+
+En resumen, la diferencia principal entre una lista enlazada simple y una lista enlazada doble en Python es la cantidad de punteros que tienen los nodos: la lista enlazada simple tiene un puntero que apunta al siguiente nodo, mientras que la lista enlazada doble tiene dos punteros, uno que apunta al nodo anterior y otro al nodo siguiente. Esto afecta la forma en que se puede acceder y manipular los elementos en la lista, ya que la lista enlazada doble permite la navegación en ambas direcciones, lo que puede ser útil en ciertos escenarios.
+
+F.6)“La inserción en cabeza”(en Inglés “heard insertion”)en una lista enlazada en python se refiere a la operación de agregar un nuevo elemento al principio o al comienzo de la lista. Esto significa que el nuevo elemento se convierte en el primer nodo de la lista y apunta al nodo que anteriormente estaba en la cabeza, lo que modifica la cabeza de la lista para que apunte al nuevo nodo.
+
+F.6.6)La inserción en cabeza, también conocida como "head insertion" en inglés, se refiere a la operación de agregar un nuevo nodo al principio de una lista enlazada. En Python, esto implica crear un nuevo nodo con el elemento deseado y ajustar los punteros para que el nuevo nodo se convierta en el primer elemento de la lista.
+
+G.7)En PYTHON, una lista enlazada circular es una estructura de datos similar a una lista enlazada simple, pero con la particularidad de que el último nodo de la lista está enlazada de nuevo al primer nodo, creando así un ciclo continuo. Esto significa que, al recorrer la lista desde el primer nodo, si sigues avanzando a través de los enlaces, eventualmente volverás al principio de la lista.
+
+6.7.7)
